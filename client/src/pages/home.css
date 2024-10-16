@@ -1,0 +1,69 @@
+/* Home Page Posts Styling */
+.post {
+    width: 600px; /* Increased width */
+    margin-bottom: 30px; /* Add more spacing between posts */
+    border-radius: 10px; /* Smooth rounded corners */
+    overflow: hidden;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 15px; /* Add subtle shadow */
+    transition: box-shadow 0.3s ease-in-out;
+  }
+  
+  .post:hover {
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 10px 25px; /* Hover shadow effect */
+    cursor: pointer;
+  }
+  
+  /* Title and Footer Colors */
+  .post .title {
+    background-color: #283593; /* Dark blue for the title */
+    color: white;
+    padding: 15px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .post .body {
+    background-color: #f4f4f9; /* Light grey for the body */
+    padding: 20px;
+    font-size: 1.1rem;
+    color: #333;
+  }
+  
+  .post .footer {
+    background-color: #283593; /* Dark blue for the footer */
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+  }
+  
+  .footer .username {
+    font-size: 1rem;
+  }
+  
+  .footer .buttons {
+    display: flex;
+    align-items: center;
+  }
+  
+  .footer .buttons .MuiSvgIcon-root {
+    color: rgba(255, 255, 255, 0.8); /* Light color for icons */
+    margin-right: 5px;
+  }
+  
+  .footer .buttons label {
+    font-size: 1rem;
+    color: white;
+  }
+  
+  /* Like and Unlike Button Styles */
+  .likeBttn {
+    color: rgba(0, 150, 136, 1); /* Liked state color */
+  }
+  
+  .unlikeBttn {
+    color: rgba(255, 255, 255, 0.8); /* Unliked state color */
+  }
+  

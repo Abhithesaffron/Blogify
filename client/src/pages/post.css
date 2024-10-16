@@ -1,0 +1,90 @@
+.postPage {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px;
+  }
+  
+  .leftSide {
+    flex: 1;
+    margin-right: 16px;
+  }
+  
+  .rightSide {
+    flex: 1;
+    margin-top: 25px;
+    margin-left: 16px;
+  }
+  
+  .post {
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 16px;
+  }
+  
+  .title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+  }
+  
+  .body {
+    margin-top: 10px;
+    color: #555;
+  }
+  
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+  }
+  
+  .addCommentContainer {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .commentInput {
+    flex: 1;
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px solid dodgerblue;
+    margin-right: 10px;
+  }
+  
+  .addCommentButton {
+    padding: 10px 15px;
+    background-color: dodgerblue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .addCommentButton:hover {
+    background-color: darkblue;
+  }
+  
+  .listOfComments {
+    margin-top: 20px;
+  }
+  
+  .comment {
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 10px;
+  }
+  
+  .deleteCommentButton {
+    padding: 5px 10px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
