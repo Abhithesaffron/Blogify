@@ -3,7 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { AuthContext } from "../helpers/AuthContext";
 import { CircularProgress, Box, Typography, Button, Alert, Paper } from "@mui/material";
-import './Post.css'; // Import the CSS file for the Post component
+import './post.css'; // Import the CSS file for the Post component
 
 function Post() {
   const { id } = useParams();
