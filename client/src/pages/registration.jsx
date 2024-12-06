@@ -39,6 +39,7 @@ function Registration() {
 
   const onSubmit = (data, { resetForm }) => {
     setIsLoading(true);
+    setRegistrationStatus(""); // Reset status message
     axios.post(`${import.meta.env.VITE_API_BASE_URL}/auth`, data)
       .then((response) => {
         setIsLoading(false);
@@ -59,10 +60,20 @@ function Registration() {
       <Typography variant="h4" gutterBottom>
         Register
       </Typography>
+      
+      {/* Display Registration Status */}
       {registrationStatus && (
         <Typography variant="subtitle1" color={registrationStatus.includes("successful") ? "green" : "red"}>
           {registrationStatus}
         </Typography>
+      )}
+
+      {/* Display Loading Message */}
+      {isLoading && (
+        <Box display="flex" alignItems="center" justifyContent="center" mt={2} mb={2}>
+          <CircularProgress size={24} sx={{ mr: 1 }} />
+          <Typography variant="subtitle1">Processing your registration...</Typography>
+        </Box>
       )}
 
       <Formik
@@ -105,7 +116,7 @@ function Registration() {
                 type="submit"
                 variant="contained"
                 color="primary"
-                disabled={isLoading || usernameExists} // Disable submit if username exists
+                disabled={isLoading || usernameExists} // Disable submit if loading or username exists
               >
                 {isLoading ? <CircularProgress size={24} /> : "Register"}
               </Button>

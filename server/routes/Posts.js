@@ -157,7 +157,7 @@ router.delete("/:postId", validateToken, async (req, res) => {
     const deletedPost = await Posts.destroy({
       where: { postId: postId },
     });
-    console.log(deletedPost);
+    // console.log(deletedPost);
     if (!deletedPost) {
       return res.status(404).json({ error: "Post not found." });
     }

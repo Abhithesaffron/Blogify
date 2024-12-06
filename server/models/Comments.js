@@ -34,17 +34,17 @@ module.exports = (sequelize, DataTypes) => {
         notNull: { msg: "Post ID is required" }, // Ensure postId is not null
       },
     },
-    refId:{
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'Posts',
-        key: 'postId', // Reference to postId in Posts table
-      },
-      validate: {
-        notNull: { msg: "Post ID is required" }, // Ensure postId is not null
-      },
-    }
+    // refId:{
+    //   type: DataTypes.INTEGER,
+    //   allowNull: false,
+    //   references: {
+    //     model: 'Posts',
+    //     key: 'postId', // Reference to postId in Posts table
+    //   },
+    //   validate: {
+    //     notNull: { msg: "Post ID is required" }, // Ensure postId is not null
+    //   },
+    // }
   });
 
   Comments.associate = (models) => {

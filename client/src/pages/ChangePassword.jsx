@@ -8,9 +8,10 @@ function ChangePassword() {
   const [loading, setLoading] = useState(false); // Loading state for async request
   const [error, setError] = useState(null); // Error state
   const [success, setSuccess] = useState(null); // Success state
-
+  const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
+  
   const validatePasswords = () => {
-    const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
+    
     if (!oldPassword || !newPassword) {
       setError("Both old and new passwords are required.");
       return false;
@@ -30,6 +31,7 @@ function ChangePassword() {
     setSuccess(null);
 
     try {
+      
       const response = await axios.put(
         `${apiBaseUrl}/auth/changepassword`,
         {

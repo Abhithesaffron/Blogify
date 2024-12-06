@@ -4,7 +4,7 @@ const { Comments, Users } = require("../models");
 const { validateToken } = require("../middlewares/AuthMiddleware");
 
 // Get comments for a specific post, including the associated username
-router.get("/:postId", async (req, res) => {
+router.get("/:postId", validateToken , async (req, res) => {
   const postId = req.params.postId;
 
   try {

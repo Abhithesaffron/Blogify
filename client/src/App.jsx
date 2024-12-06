@@ -17,7 +17,7 @@ import axios from "axios";
 
 function App() {
   const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
-  console.log(apiBaseUrl)
+  // console.log(apiBaseUrl)
   const [authState, setAuthState] = useState({
     username: "",
     id: 0,

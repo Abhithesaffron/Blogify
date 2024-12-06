@@ -2,22 +2,25 @@ import React, { useState, useContext } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../helpers/AuthContext";
-import { Button, Typography, Box, Alert } from "@mui/material";
+import { Button, Typography, Box, Alert, CircularProgress } from "@mui/material";
 import './Login.css'; 
 
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null); // State to handle error messages
+  const [loading, setLoading] = useState(false); // State to handle loading status
   const { setAuthState } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const login = async () => {
-    // Reset error before new login attempt
+    // Reset error and set loading state
     setError(null);
+    setLoading(true);
 
     // Check if username and password are provided
     if (!username || !password) {
+      setLoading(false);
       setError("Please enter both username and password.");
       return;
     }
@@ -27,10 +30,11 @@ function Login() {
     try {
       const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/auth/login`, data);
       
-      // If there's an error message in the response, show it in the UI
+      // Reset form and stop loading
       setPassword("");
-
       setUsername("");
+      setLoading(false);
+
       if (response.data.error) {
         setError(response.data.error);
         return;
@@ -49,8 +53,8 @@ function Login() {
       // Handle any errors during the request
       console.error("Login error:", err);
       setError("Failed to log in. Please try again later.");
+      setLoading(false);
     }
-    
   };
 
   return (
@@ -65,6 +69,14 @@ function Login() {
           {error}
         </Alert>
       )}
+
+      {/* Pending message */}
+      {loading && (
+        <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", mb: 2 }}>
+          <CircularProgress size={24} sx={{ mr: 1 }} />
+          <Typography>Logging in...</Typography>
+        </Box>
+      )}
       
       {/* Username input */}
       <input
@@ -73,6 +85,7 @@ function Login() {
         placeholder="Username"
         value={username}
         onChange={(event) => setUsername(event.target.value)}
+        disabled={loading}
       />
 
       {/* Password input */}
@@ -82,6 +95,7 @@ function Login() {
         placeholder="Password"
         value={password}
         onChange={(event) => setPassword(event.target.value)}
+        disabled={loading}
       />
       
       {/* Login button */}
@@ -91,8 +105,9 @@ function Login() {
         onClick={login}
         sx={{ mt: 2 }}
         fullWidth
+        disabled={loading} // Disable button while loading
       >
-        Login
+        {loading ? "Processing..." : "Login"}
       </Button>
     </Box>
   );
