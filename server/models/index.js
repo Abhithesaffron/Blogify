@@ -25,10 +25,10 @@ try {
       port: process.env.DB_PORT,
       dialectOptions: {
         // for deployement
-        // ssl: {
-        //   require: true, // Enforce SSL connection
-        //   rejectUnauthorized: false, // Allow self-signed certificates
-        // }
+        ssl: {
+          require: true, // Enforce SSL connection
+          rejectUnauthorized: false, // Allow self-signed certificates
+        }
       }
     },
     
